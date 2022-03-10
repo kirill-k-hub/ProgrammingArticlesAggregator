@@ -1,20 +1,14 @@
-﻿using System;
+﻿using ArticlesParser.Base;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace ArticlesParser.MsDevBlog
 {
-    public class DevsBlogParserSettings
+    public class DevsBlogParserSettings : BaseSettings
     {
-        public DevsBlogParserSettings(int start, int count)
+        public DevsBlogParserSettings(int start = 1, int count = 1) : base("https://devblogs.microsoft.com/page/&/", start, count)
         {
-            Address = "https://devblogs.microsoft.com/page/&/";
-            StartPage = start;
-            Count = count;
         }
-
-        public string Address { get; }
-        public int StartPage { get; }
-        public int Count { get; }
     }
 }

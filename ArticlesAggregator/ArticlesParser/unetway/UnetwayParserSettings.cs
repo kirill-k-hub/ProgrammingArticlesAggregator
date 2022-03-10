@@ -1,16 +1,11 @@
-﻿namespace ArticlesParser.unetway
-{
-    public class UnetwayParserSettings
-    {
-        public UnetwayParserSettings(int start, int count)
-        {
-            Address = "https://unetway.com/blog?page=&/";
-            StartPage = start;
-            Count = count;
-        }
+﻿using ArticlesParser.Base;
 
-        public string Address { get; }
-        public int StartPage { get; }
-        public int Count { get; }
+namespace ArticlesParser.unetway
+{
+    public class UnetwayParserSettings : BaseSettings
+    {
+        public UnetwayParserSettings(int start = 1, int count = 1) : base("https://unetway.com/blog?page=&/", start, count)
+        {
+        }
     }
 }

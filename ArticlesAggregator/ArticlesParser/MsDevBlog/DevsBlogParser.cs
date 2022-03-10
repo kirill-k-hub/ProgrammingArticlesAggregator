@@ -11,11 +11,11 @@ using System.Threading.Tasks;
 
 namespace ArticlesParser.MsDevBlog
 {
-    public class MsDevsBlogParser
+    public class DevsBlogParser
     {
         private static HttpClient client;
 
-        static MsDevsBlogParser()
+        static DevsBlogParser()
         {
             client = new HttpClient();
         }

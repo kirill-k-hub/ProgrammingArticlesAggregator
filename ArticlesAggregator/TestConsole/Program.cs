@@ -13,30 +13,27 @@ namespace TestConsole
     {
         static void Main(string[] args)
         {
-            //List<HabrArticle> articles = new List<HabrArticle>();
+            ParseHabr();
 
-            //HabrParser parser = new HabrParser();
-            //HabrParserSettings settings = new HabrParserSettings(3, 1);
+            if (Console.ReadLine() != string.Empty)
+                return;
+            
+            Console.WriteLine();
+            Console.WriteLine();
 
-            //var result = parser.Parse(settings).Result;
+            ParseDevsBlog();
 
-            //foreach (var article in result)
-            //{
-            //    Console.WriteLine(article.Name + " : " + article.Link);
-            //}
+            if (Console.ReadLine() != string.Empty)
+                return;
 
-            //List<DevsBlogArticle> articles = new List<DevsBlogArticle>();
+            Console.WriteLine();
+            Console.WriteLine();
 
-            //MsDevsBlogParser parser = new MsDevsBlogParser();
-            //DevsBlogParserSettings settings = new DevsBlogParserSettings(1, 1);
+            ParseUnetway();
+        }
 
-            //var result = parser.Parse(settings).Result;
-
-            //foreach (var article in result)
-            //{
-            //    Console.WriteLine(article.Name + " : " + article.Link);
-            //}
-
+        private static void ParseUnetway()
+        {
             List<UnetwayArticle> articles = new List<UnetwayArticle>();
 
             UnetwayParser parser = new UnetwayParser();
@@ -46,7 +43,35 @@ namespace TestConsole
 
             foreach (var article in result)
             {
-                Console.WriteLine(article.Name + " - " + article.AuthorNickname + " : " + article.PublicationDate);
+                Console.WriteLine(article.Name + " - " + article.AuthorNickname + " : " + article.PublicationDate.ToShortDateString());
+            }
+        }
+        private static void ParseHabr()
+        {
+            List<HabrArticle> articles = new List<HabrArticle>();
+
+            HabrParser parser = new HabrParser();
+            HabrParserSettings settings = new HabrParserSettings(3, 1);
+
+            var result = parser.Parse(settings).Result;
+
+            foreach (var article in result)
+            {
+                Console.WriteLine(article.Name + " : " + article.Link);
+            }
+        }
+        private static void ParseDevsBlog()
+        {
+            List<DevsBlogArticle> articles = new List<DevsBlogArticle>();
+
+            DevsBlogParser parser = new DevsBlogParser();
+            DevsBlogParserSettings settings = new DevsBlogParserSettings(1, 1);
+
+            var result = parser.Parse(settings).Result;
+
+            foreach (var article in result)
+            {
+                Console.WriteLine(article.Name + " : " + article.Link);
             }
         }
     }

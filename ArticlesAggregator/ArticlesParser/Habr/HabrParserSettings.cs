@@ -2,17 +2,10 @@
 
 namespace ArticlesParser.Habr
 {
-    public class HabrParserSettings
+    public class HabrParserSettings : BaseSettings
     {
-        public HabrParserSettings(int start, int count)
+        public HabrParserSettings(int start = 1, int count = 1) : base("https://habr.com/en/all/page&/", start, count)
         {
-            Address = "https://habr.com/en/all/page&/";
-            StartPage = start;
-            Count = count;
         }
-
-        public string Address { get; }
-        public int StartPage { get; }
-        public int Count { get; }
     }
 }
